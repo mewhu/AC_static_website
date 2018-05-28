@@ -112,4 +112,70 @@ header {
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
+  /* border: 1px solid red; */
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+
+  /* [取捨-2] overlay設定position是為了與container_table放在同個位置有關
+  -->尚不是很懂哪一個要relative哪一個要absolute
+  -->it all relates to「層疊上下文(stacking context) & 層疊順序」 */
+  /* [層疊上下文&順序]:正z-index > 定位元素 > 内联元素 > 浮动元素 > 块级元素 > border > background >负z-index */
+  position: absolute;
+  /* position: relative; */
+}
+
+/* [table垂直置中] */
+/* [內容垂直置中table法] 配合table-cell的vertical-align，需先把total height調出來 */
+.container_table {
+  display: table;
+  width: 100%;
+  height: 100%;
+
+  /* [取捨-2][https://lighthouse.alphacamp.co/lessons/117/units/509] */
+  /* 不確定為啥要有position relative */
+  /* [取捨-2] container_table設定postion原來是為了與overlay區域放在同個位置有關
+  -->尚不是很懂哪一個要relative哪一個要absolute
+  -->it all relates to「層疊上下文(stacking context) & 層疊順序」 */
+  /* [層疊上下文&順序]:正z-index > 定位元素 > 内联元素 > 浮动元素 > 块级元素 > border > background >负z-index */
+  position: relative;
+  /* top: -640px; */
+  /* position: absolute; */
+}
+
+/* [內容水平置中] 用txet-align: center即可  */
+/* [內容垂直置中table法] 需配合table的height=100%，使用vertical-align: middle */
+/* [內容垂直置中table法] 記得display要調成table-cell，此table-cell div的高度才會長出來，
+                       vertical-align才會有高差可以"middle" */
+/* [內容垂直置中table法] 此法的vertical-align是作用在 table_cell位於table中的垂直位置。
+                      因此若把內容物跳過div.container_table_cell上，直接丟到前一層
+                      div.container_table去直接用vertical-align是沒有作用的。 */
+/* [內容垂直置中table法] table-cell的vertical-align只會作用在自身，對子元素設置vertical-align是沒有意義的 */
+.container_table_cell {
+  display: table-cell;
+
+  /* text-align:center作用於對table_cell之內的 "h2"及social_icons */
+  text-align: center;
+
+  /* vertical-align:middle作用於table_cell本身位於table中的垂直位置 */
+  vertical-align: middle;
+}
+
+.container_table_cell h2 {
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 54px;
+}
+
+.social_icons a {
+  color: #fff;
+  display: inline-block;
+  width: 30px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 19px;
+  margin-right: 7px;
 }
