@@ -66,11 +66,17 @@ h2 {
   text-transform: uppercase;
 }
 
+section {
+  /* 有關section的padding已移至此處 */
+  padding: 100px 0;
+}
+
 /* =================== header area =================== */
 header {
   width: 100%;
 
   /* 設定position:fixed;以後，header的高度才會長出不為0的高度，尚不知原因 */
+  /* --> 高度消失，可能也與header之中的子元素有用到float有關 */
   position: fixed;
   left: 0;
   right: 0;
@@ -135,6 +141,8 @@ header {
   -->it all relates to「層疊上下文(stacking context) & 層疊順序」 */
   /* [層疊上下文&順序]:正z-index > 定位元素 > 内联元素 > 浮动元素 > 块级元素 > border > background >负z-index */
   position: absolute;
+  top: 0;
+  left: 0;
   /* position: relative; */
 }
 
@@ -192,6 +200,7 @@ header {
 
 /* =================== 以下為about_me =================== */
 .about_me {
+  /* 有關section的padding已移至上方的configuration for this project專區 */
   padding: 100px 0;
 }
 
@@ -265,7 +274,9 @@ header {
 
 /* =================== 以下為my_service =================== */
 .my_service {
-  padding: 100px 0;
+  /* 有關section的padding已移至上方的configuration for this project專區 */
+  /* padding: 100px 0; */
+
   background-color: #f9f9f9;
 }
 
@@ -293,4 +304,53 @@ header {
   font-size: 14px;
   font-weight: 300;
   line-height: 24px;
+}
+
+/* =================== 以下為resume =================== */
+.col-horizontal {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #767676;
+}
+
+.col-horizontal:last-child {
+  border-bottom: 0;
+}
+
+h3.resume-subtitle {
+  font-size: 20px;
+  margin-left: 15px;
+  margin-top: 12px;
+  text-transform: capitalize;
+}
+
+.col-horizontal .col-item {
+  float: left;
+  width: 50%;
+  padding: 0 15px;
+}
+
+.experience-year {
+  background-color: #000;
+  color: #fff;
+  display: inline-block;
+  padding: 4px 20px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.resume-detail h4 {
+  font-size: 16px;
+  line-height: 30px;
+  text-transform: capitalize;
+}
+
+.resume-detail h6 {
+  font-size: 12px;
+  margin-bottom: 9px;
+  text-transform: capitalize;
+}
+
+.resume-detail p {
+  line-height: 22px;
+  text-align: justify;
 }
