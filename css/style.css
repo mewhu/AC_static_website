@@ -122,13 +122,17 @@ header {
 
 /* =================== background image area =================== */
 .home_bg {
-  background-image: url(../images/960x514.png);
-  background-size: cover;
+  /* background-image: url(../images/960x514.png); */
+  /* 換成lamew.JPG */
+  background-image: url(../images/Hoga/my_work/lamew.JPG);
+  /* background-size: cover; */
+
+  /* lamew.JPG最顯眼的地方是最上面+整張照片太高了，所以註解掉background-position: center */
   background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
-  /* border: 1px solid red; */
 }
 
 .overlay {
